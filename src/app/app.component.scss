@@ -1,0 +1,14 @@
+/deep/ app-root {
+  mat-nav-list {
+    &.floating{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .mat-list-item {
+        padding: 0;
+      }
+
+    }
+
+  }
+}

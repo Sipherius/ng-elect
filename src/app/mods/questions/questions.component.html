@@ -1,0 +1,75 @@
+
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>Auswahl</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-form-field [floatPlaceholder]="floatPlaceholder">
+			<mat-select placeholder="Umfrage" (change)="latestChangeEvent($event)">
+				<mat-option >Keine</mat-option>
+				<mat-option *ngFor="let item of data" [value]="item.value" [disabled]="item.disabled">
+					{{ item.viewValue }}
+				</mat-option>
+			</mat-select>
+
+			<mat-icon matPrefix class="selection-icon">view_list</mat-icon>
+
+			<mat-hint>Bitte auswählen!</mat-hint>
+			<mat-error>Sie müssen eine Umfrage auswählen</mat-error>
+		</mat-form-field>
+	</mat-card-content>
+</mat-card>
+
+<mat-progress-bar *ngIf="pageEvent.pageIndex + 1 > 0" mode="determinate" [value]="progress()" [bufferValue]="bufferValue"></mat-progress-bar>
+
+<mat-card *ngIf="validStatements == -1">
+	<mat-card-header>
+		<mat-card-title>These <ng-container *ngIf="pageEvent.pageIndex>0||length>0">[ {{pageEvent.pageIndex+1}} von {{length}}
+			]</ng-container></mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-list>
+			<mat-list-item
+					*ngFor="let question of questions| slice: paginationFrom(pageEvent) : paginationTo(pageEvent);" title="{{question.text}}">
+				<label mat-line for="question-answer-{{question.id}}">{{ question.text }}</label>
+				<mat-radio-group mat-line id="question-answer-{{question.id}}">
+					<mat-radio-button [value]="-1"
+									  [checked]="(question.checked==null||question.checked<0)"
+									  (change)="onSelectionChange(-1, question);"
+					> Nicht ausgewählt</mat-radio-button>
+					<mat-radio-button [value]="answer.id"
+									  [checked]="question.checked===answer.id"
+									  *ngFor="let answer of answers"
+									  (change)="onSelectionChange(answer.id, question);"
+					>{{answer.message}}
+					</mat-radio-button>
+					<a mat-raised-button color="primary" (click)="skip()">Überspringen</a>
+				</mat-radio-group>
+			</mat-list-item>
+			<mat-list-item *ngIf="selection && useEvaluateButton">
+				<button mat-raised-button color="accent" (click)="evaluate()">Auswerten</button>
+			</mat-list-item>
+		</mat-list>
+	</mat-card-content>
+	<mat-card-footer>
+		<mat-paginator *ngIf="length > 0" [length]="length"
+					   [pageSize]="pageSize"
+					   (page)="pageEvent = $event; onPaginateChange($event)">
+		</mat-paginator>
+	</mat-card-footer>
+</mat-card>
+<mat-card *ngIf="validStatements > 0">
+	<mat-card-header>
+		<mat-card-title>Häufigkeit der Übereinstimmung nach Partei</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-list ngClass="floating">
+			<mat-list-item *ngFor="let party of parties;let i=index">
+				{{ party.name }} ({{party.result}})
+			</mat-list-item>
+		</mat-list>
+		<mat-list-item *ngIf="selection && useEvaluateButton">
+			<button mat-button (click)="back()">Zurück</button>
+		</mat-list-item>
+	</mat-card-content>
+</mat-card>

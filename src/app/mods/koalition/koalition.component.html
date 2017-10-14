@@ -1,0 +1,75 @@
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>Auswahl</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-form-field [floatPlaceholder]="floatPlaceholder">
+			<mat-select placeholder="Umfrage" (change)="latestChangeEvent($event)">
+				<mat-option>Keine</mat-option>
+				<mat-option *ngFor="let item of data" [value]="item.value" [disabled]="item.disabled">
+					{{ item.viewValue }}
+				</mat-option>
+			</mat-select>
+
+			<mat-icon matPrefix class="selection-icon">view_list</mat-icon>
+
+			<mat-hint>Bitte auswählen!</mat-hint>
+			<mat-error>Sie müssen eine Umfrage auswählen</mat-error>
+		</mat-form-field>
+
+		<mat-form-field *ngIf="selection" [floatPlaceholder]="floatPlaceholder">
+			<mat-select placeholder="Partei" (change)="latestChangeEvent2($event)" [(ngModel)]="filter" >
+				<mat-option [value]="-1">Alle Parteien</mat-option>
+				<mat-option *ngFor="let party of parties" [value]="party.id">
+					{{ party.name }}
+				</mat-option>
+			</mat-select>
+
+			<mat-icon matPrefix class="selection-icon">view_list</mat-icon>
+
+			<mat-hint>Bitte auswählen!</mat-hint>
+			<mat-error>Sie müssen eine Partei auswählen</mat-error>
+		</mat-form-field>
+
+		<mat-list *ngIf="selection">
+			<mat-list-item>
+				<label mat-line for="coalition-modus">Koalitionsmodus</label>
+				<mat-radio-group mat-line id="coalition-modus">
+					<mat-radio-button [value]="1"
+									  (change)="latestChangeEvent3(2);"
+					>2-er
+					</mat-radio-button>
+					<mat-radio-button [value]="2"
+									  (change)="latestChangeEvent3(3);"
+					>3-er
+					</mat-radio-button>
+					<mat-radio-button [value]="3"
+									  (change)="latestChangeEvent3(0);"
+					>2+3-er
+					</mat-radio-button>
+				</mat-radio-group>
+			</mat-list-item>
+		</mat-list>
+
+	</mat-card-content>
+</mat-card>
+
+<mat-progress-bar *ngIf="result.length > 0 && pageEvent.pageIndex + 1 > 0" mode="determinate" [value]="progress()" [bufferValue]="bufferValue"></mat-progress-bar>
+
+<mat-card *ngIf="result.length>0">
+	<mat-card-title>Koalitionskonstellationen</mat-card-title>
+	<mat-card-content>
+		<mat-grid-list *ngFor="let row of result| slice: paginationFrom(pageEvent) : paginationTo(pageEvent);" cols="4" [rowHeight]="basicRowHeight">
+			<mat-grid-tile> {{row.first}} </mat-grid-tile>
+			<mat-grid-tile> {{row.second}} </mat-grid-tile>
+			<mat-grid-tile> {{row.third?row.third:""}} </mat-grid-tile>
+			<mat-grid-tile class="match"> {{row.match}} </mat-grid-tile>
+		</mat-grid-list>
+	</mat-card-content>
+	<mat-card-footer>
+		<mat-paginator [length]="length"
+					   [pageSize]="pageSize"
+					   (page)="pageEvent = $event; onPaginateChange($event)">
+		</mat-paginator>
+	</mat-card-footer>
+</mat-card>

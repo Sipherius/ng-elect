@@ -1,0 +1,60 @@
+/deep/ app-konsens {
+  mat-card {
+    margin-bottom: 0.5rem;
+  }
+  mat-paginator {
+    .mat-paginator-range-label,
+    .mat-paginator-page-size{
+      display:none;
+    }
+  }
+  mat-chip-list {
+    .mat-chip-list-wrapper{
+      flex-wrap: nowrap;
+    }
+    mat-chip {
+      white-space: nowrap;
+    }
+  }
+  .mat-list {
+    .mat-list-item {
+      padding: 1rem 0;
+      mat-radio-group{
+        padding: 1rem 0;
+      }
+      .mat-list-text:nth-child(n){
+        padding: 1rem 0;
+        label {
+          padding-bottom: 1rem;
+          -webkit-user-select: none;  /* Chrome all / Safari all */
+          -moz-user-select: none;     /* Firefox all */
+          -ms-user-select: none;      /* IE 10+ */
+          user-select: none;          /* Likely future */
+        }
+      }
+
+      .mat-radio-button {
+        .mat-radio-label-content {
+          -webkit-user-select: none;  /* Chrome all / Safari all */
+          -moz-user-select: none;     /* Firefox all */
+          -ms-user-select: none;      /* IE 10+ */
+          user-select: none;          /* Likely future */
+        }
+        .mat-radio-label {
+          display: flex;
+          padding: 1rem;
+          padding-right: 1rem;
+        }
+      }
+    }
+    &.floating{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .mat-list-item {
+        padding: 0;
+      }
+
+    }
+  }
+}

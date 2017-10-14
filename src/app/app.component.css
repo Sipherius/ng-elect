@@ -1,0 +1,8 @@
+/deep/ app-root mat-nav-list.floating {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  /deep/ app-root mat-nav-list.floating .mat-list-item {
+    padding: 0; }
+
+/*# sourceMappingURL=app.component.css.map */
