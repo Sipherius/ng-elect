@@ -34,3 +34,5 @@ For evaluation purposes applications from
 [konsens-o-mat-kiss](https://rawgit.com/gockelhahn/konsens-o-mat-kiss/master/index.html)
 and [koal-o-mat-kiss](https://rawgit.com/gockelhahn/koal-o-mat-kiss/master/index.html)
 are re-arranged following the angular 4 way of composing features   .
+
+![Preview](https://github.com/tscgist/ng-elect/blob/master/images/app.gif?raw=true)
