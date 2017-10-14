@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { BaseModule } from './mods/base.module';
 
 import {
   MatListModule,
@@ -22,7 +21,6 @@ import {
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    BaseModule,
     AppRoutingModule,
     MatListModule,
   ],

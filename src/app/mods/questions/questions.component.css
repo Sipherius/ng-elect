@@ -1,0 +1,42 @@
+/deep/ app-questions mat-card {
+  margin-bottom: 0.5rem; }
+/deep/ app-questions mat-paginator .mat-paginator-range-label,
+/deep/ app-questions mat-paginator .mat-paginator-page-size {
+  display: none; }
+/deep/ app-questions .mat-list .mat-list-item {
+  padding: 1rem 0; }
+  /deep/ app-questions .mat-list .mat-list-item mat-radio-group {
+    padding: 1rem 0; }
+  /deep/ app-questions .mat-list .mat-list-item .mat-list-text:nth-child(n) {
+    padding: 1rem 0; }
+    /deep/ app-questions .mat-list .mat-list-item .mat-list-text:nth-child(n) label {
+      padding-bottom: 1rem;
+      -webkit-user-select: none;
+      /* Chrome all / Safari all */
+      -moz-user-select: none;
+      /* Firefox all */
+      -ms-user-select: none;
+      /* IE 10+ */
+      user-select: none;
+      /* Likely future */ }
+  /deep/ app-questions .mat-list .mat-list-item .mat-radio-button .mat-radio-label-content {
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Likely future */ }
+  /deep/ app-questions .mat-list .mat-list-item .mat-radio-button .mat-radio-label {
+    display: flex;
+    padding: 1rem;
+    padding-right: 1rem; }
+/deep/ app-questions .mat-list.floating {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  /deep/ app-questions .mat-list.floating .mat-list-item {
+    padding: 0; }
+
+/*# sourceMappingURL=questions.component.css.map */

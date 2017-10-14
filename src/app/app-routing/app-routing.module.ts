@@ -2,23 +2,11 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, PreloadAllModules , Routes } from '@angular/router';
 
-import { KoalitionComponent } from '../mods/koalition/koalition.component';
-import { KonsensComponent } from '../mods/konsens/konsens.component';
-import { QuestionsComponent } from '../mods/questions/questions.component';
-
 const routes: Routes = [
-  {
-    path: 'koalition',
-    component: KoalitionComponent,
-  },
-  {
-    path: 'konsens',
-    component: KonsensComponent,
-  },
-  {
-    path: 'questions',
-    component: QuestionsComponent,
-  },
+  {path: "", redirectTo: '/questions', pathMatch: "full"},
+  {path: "koalition", loadChildren: '../mods/koalition/koalition.module#KoalitionModule'},
+  {path: "konsens", loadChildren: '../mods/konsens/konsens.module#KonsensModule'},
+  {path: "questions", loadChildren: '../mods/questions/questions.module#QuestionsModule'},
 ];
 
 @NgModule({
@@ -31,5 +19,3 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-
-//export const routingComponents = [KoalitionComponent, KonsensComponent, QuestionsComponent];
