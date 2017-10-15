@@ -10,7 +10,7 @@ export class RoutesService {
 
   constructor(private _http?: Http) {}
 
-  getRoutes() {
+  getRoutes()  {
     return this.getData(this.APILIST);
   }
 

@@ -3,16 +3,9 @@ import {NgModule} from '@angular/core';
 import {RouterModule, PreloadAllModules, Routes, Router} from '@angular/router';
 //import {getRouteComponents} from '../utils/route';
 
-const routes: Routes = [
-    {path: "", redirectTo: '/questions', pathMatch: "full"},
-    {path: "koalition", loadChildren: '../mods/koalition/koalition.module#KoalitionModule'},
-    {path: "konsens", loadChildren: '../mods/konsens/konsens.module#KonsensModule'},
-    {path: "questions", loadChildren: '../mods/questions/questions.module#QuestionsModule'},
-    {path: 'notfound', loadChildren: '../mods/page-status/page-status.module#PageStatusModule'},
-    {path: '**', redirectTo: '/notfound'}
-];
+import {RoutesService} from "../services/routes.service";
 
-//const routeComponents = getRouteComponents(routes);
+const routes: Routes = [];
 
 @NgModule({
     imports: [
@@ -22,9 +15,15 @@ const routes: Routes = [
         RouterModule
     ],
     declarations: [
+    ],
+    providers: [
+        RoutesService,
     ]
 })
 export class AppRoutingModule {
-    constructor() {
+    constructor(private routes: RoutesService, private router: Router) {
+        routes.getRoutes().subscribe((response) => {
+            this.router.resetConfig(response);
+        });
     }
 }
