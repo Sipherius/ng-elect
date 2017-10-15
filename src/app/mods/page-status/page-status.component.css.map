@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,2BAAW;EACT,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,SAAS,EAAE,IAAI;EACf,0CAAe;IACb,OAAO,EAAE,CAAC",
+"sources": ["page-status.component.scss"],
+"names": [],
+"file": "page-status.component.css"
+}

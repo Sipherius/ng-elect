@@ -1,0 +1,8 @@
+/deep/ page-status.floating {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  /deep/ page-status.floating .mat-list-item {
+    padding: 0; }
+
+/*# sourceMappingURL=page-status.component.css.map */

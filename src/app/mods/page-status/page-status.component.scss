@@ -1,0 +1,11 @@
+/deep/ page-status {
+  &.floating {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .mat-list-item {
+      padding: 0;
+    }
+
+  }
+}

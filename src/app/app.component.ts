@@ -7,6 +7,6 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-Wahl-O-Mat';
+  title = 'ng-elect';
 
 }
