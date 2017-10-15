@@ -1,0 +1,27 @@
+[
+  {
+    "path": "",
+    "redirectTo": "/questions",
+    "pathMatch": "full"
+  },
+  {
+    "path": "koalition",
+    "loadChildren": "../mods/koalition/koalition.module#KoalitionModule"
+  },
+  {
+    "path": "konsens",
+    "loadChildren": "../mods/konsens/konsens.module#KonsensModule"
+  },
+  {
+    "path": "questions",
+    "loadChildren": "../mods/questions/questions.module#QuestionsModule"
+  },
+  {
+    "path": "notfound",
+    "loadChildren": "../mods/page-status/page-status.module#PageStatusModule"
+  },
+  {
+    "path": "**",
+    "redirectTo": "/notfound"
+  }
+]
