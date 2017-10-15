@@ -13,6 +13,7 @@ import {Koalition} from './koalition';
     styleUrls: ['./koalition.component.scss']
 })
 export class KoalitionComponent implements OnInit {
+    floatPlaceholder: any;
 
     questions: Array<any> = [];
     answers: Array<any> = [];

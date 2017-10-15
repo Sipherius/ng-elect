@@ -14,6 +14,8 @@ import {QuestionsService} from '../../services/questions.service';
 })
 export class QuestionsComponent implements OnInit {
 
+    floatPlaceholder: any;
+
     questions: Array<any> = [];
     answers: Array<any> = [];
     data: Array<any> = [];

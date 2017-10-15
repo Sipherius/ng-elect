@@ -13,6 +13,8 @@ import {KonsensService} from '../../services/konsens.service';
 })
 export class KonsensComponent implements OnInit {
 
+    floatPlaceholder: any;
+
     questions: Array<any> = [];
     answers: Array<any> = [];
     parties: Array<any> = [];
